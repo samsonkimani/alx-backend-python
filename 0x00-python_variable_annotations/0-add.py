@@ -10,5 +10,5 @@ the function should be type annotated
 
 
 def add(a: float, b: float) -> float:
-
+    """ an add function"""
     return a + b
