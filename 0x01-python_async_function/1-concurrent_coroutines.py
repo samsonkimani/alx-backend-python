@@ -4,6 +4,10 @@ import asyncio
 from typing import List
 
 """
+ a wait function that returns a list of delays
+ @n: number of times to call the wait function
+ @max_delay: the maximum delay time
+ return a list of delays
 """
 
 
@@ -13,7 +17,7 @@ vector = List[float]
 
 
 async def wait_n(n: int, max_delay: int) -> vector:
-    """ """
+    """ wait function"""
     delays = []
 
     for _ in range(n):
