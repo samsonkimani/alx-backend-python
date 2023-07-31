@@ -64,10 +64,12 @@ class TestMemoize(unittest.TestCase):
             """ document testclass"""
 
             def a_method(self):
+                """ return 42"""
                 return 42
 
             @memoize
             def a_property(self):
+                """ a memoized function to call a_method"""
                 return self.a_method()
 
         with patch.object(
