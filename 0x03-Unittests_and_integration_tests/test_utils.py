@@ -7,6 +7,7 @@ creating a test access nested map
 import unittest
 from parameterized import parameterized
 import utils
+from utils import memoize
 from unittest.mock import patch, Mock
 
 
@@ -51,3 +52,24 @@ class TestGetJson(unittest.TestCase):
         with patch("requests.get") as MockedClass:
             MockedClass.return_value = Mocked()
             self.assertEqual(utils.get_json(test_url), test_payload)
+
+
+class TestMemoize(unittest.TestCase):
+    """ class to test memoization"""
+
+    def test_memoize(self):
+        """ test memoize method"""
+        class TestClass:
+
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        with patch.object(TestClass, 'a_method') as mocked_method:
+            obj = TestClass()
+            obj.a_property
+            obj.a_property
+            mocked_method.assert_called_once()
