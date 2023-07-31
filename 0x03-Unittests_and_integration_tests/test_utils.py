@@ -6,16 +6,7 @@ creating a test access nested map
 
 import unittest
 from parameterized import parameterized
-
-
-def access_nested_map(nested_map, path):
-    try:
-        for key in path:
-            nested_map = nested_map[key]
-        return nested_map
-    except (TypeError, KeyError):
-        return None
-    pass
+import utils
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -29,8 +20,5 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
     def test_access_nested_map(self, nested_map, path, expected_result):
-        self.assertEqual(access_nested_map(nested_map, path), expected_result)
-
-
-if __name__ == "__main__":
-    unittest.main()
+        result = utils.access_nested_map(nested_map, path)
+        self.assertEqual(result, expected_result)
