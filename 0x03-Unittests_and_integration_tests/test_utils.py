@@ -60,6 +60,7 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self):
         """ test memoize method"""
         class TestClass:
+            """ document testclass"""
 
             def a_method(self):
                 return 42
