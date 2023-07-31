@@ -77,4 +77,3 @@ class TestMemoize(unittest.TestCase):
             mocked_method.assert_called_once()
             self.assertEqual(result1, 42)
             self.assertEqual(result2, 42)
-
